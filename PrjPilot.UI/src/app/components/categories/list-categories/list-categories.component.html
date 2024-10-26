@@ -1,0 +1,44 @@
+<h1>Categorias</h1>
+<button type="button" id="btnModalCategory" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Incluir Categoria
+  </button>
+<table class="table table-striped">
+    <thead>
+        <tr *ngFor="let p of categories">
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of categories">
+            <th>{{c.id}}</th>
+            <td>{{c.name}}</td>
+            <td>{{c.description}}</td>
+            
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="!categories ||categories.length <= 0">Nenhum categoria cadastrada.</p>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Incluir Categoria</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome">
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Descrição">
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>

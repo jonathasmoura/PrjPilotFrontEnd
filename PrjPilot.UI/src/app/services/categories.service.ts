@@ -15,8 +15,16 @@ export class CategoriesService {
 
 
 
-  getAllCategories(): Observable<Category[]>{
+getAllCategories(): Observable<Category[]>{
     return this.http.get<Category[]>(this.baseUrl + 'categories');
 }
+
+addCategory(categry: Category): Observable<any>{
+return this.http.post(this.baseUrl + 'addcategory', categry);
+}
+
+
+
+
 
 }

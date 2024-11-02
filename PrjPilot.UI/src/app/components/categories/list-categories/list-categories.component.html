@@ -28,16 +28,20 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nome">
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Descrição">
-              </div>
+          <form [formGroup]="formCategory">
+            <div class="col-12">
+              <label for="" class="form-label">Nome Categoria</label>
+              <input type="text" class="form-control"  formControlName="name">
+            </div>
+            <div class="col-12">
+              <label for="" class="form-label">Descrição Categoria</label>
+              <input type="text" class="form-control" formControlName="description">
+            </div>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary">Salvar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSubmit()">Salvar</button>
         </div>
       </div>
     </div>

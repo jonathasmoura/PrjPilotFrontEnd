@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './users/login/login.component';
 import { RegisterComponent } from './users/register/register.component';
 import { ListProductsComponent } from './components/products/list-products/list-products.component';
-import { ListAdvertisementsComponent } from './components/advertisements/list-advertisements/list-advertisements.component';
 import { ListCategoriesComponent } from './components/categories/list-categories/list-categories.component';
 
 const routes: Routes = [
@@ -22,10 +21,6 @@ const routes: Routes = [
     {
       path:'categorias',
       component:ListCategoriesComponent
-    },
-    {
-      path:'todos-anuncios',
-      component:ListAdvertisementsComponent
     }
 ];
 

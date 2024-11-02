@@ -8,7 +8,8 @@ import { Product } from 'src/app/models/product.model';
 })
 export class ListProductsComponent implements OnInit{
   
-products: Product[]=[{id:'1', name:'Bermuda Tommy Hil',description:'Bermuda Jeans',price:159.99,quantity:100 },{id:'2', name:'Jaqueta Corta Vento',description:'Jaqueta Tacktel',price:129.99,quantity:100 },{id:'3', name:'Camiseta Lacospe',description:'Camiseta Pólo',price:199.99,quantity:10 }];
+products: Product[]=[];
+//[{id:'1', name:'Bermuda Tommy Hil',description:'Bermuda Jeans',price:159.99,quantity:100 },{id:'2', name:'Jaqueta Corta Vento',description:'Jaqueta Tacktel',price:129.99,quantity:100 },{id:'3', name:'Camiseta Lacospe',description:'Camiseta Pólo',price:199.99,quantity:10 }];
 
 constructor() {
   

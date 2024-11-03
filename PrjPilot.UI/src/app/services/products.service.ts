@@ -1,9 +1,23 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
+  baseUrl = 'https://localhost:44351/Product/';
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
+  getAllProducts():Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl +'products');    
+  }
+
+  addProduct(product: Product):Observable<any>{
+    return this.http.post(this.baseUrl + 'addproduct', product);
+  }
+
+
+
 }

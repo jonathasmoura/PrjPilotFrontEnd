@@ -22,7 +22,8 @@
                 <td>{{p.price}}</td>
                 <td>{{p.quantity}}</td>
                 <td>
-                    <input class="btn btn-primary" type="submit" value="Criar anuncio">
+                    <input class="btn btn-primary" type="submit" value="Criar anuncio">&nbsp;
+                    <input class="btn btn-outline-warning" type="submit" (click)="editProduct(p.id)" value="Editar">
                 </td>
             </tr>
         </tbody>

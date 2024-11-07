@@ -23,12 +23,18 @@ constructor(private productService: ProductsService,private fb: FormBuilder, pri
 submitForm() {
     if (this.formProduct.valid) {
       console.log('Form submitted:', this.formProduct.value);
-      this.productService.addProduct(this.formProduct.value).subscribe(data => {
+      this.productService.addProduct(this.formProduct.value).subscribe({
+       next:(data) =>{
         console.log(data);
         this.formProduct.reset();
         this.productService.getAllProducts();
         this.router.navigate(['/produtos']);
-      })
+       }
+      });
     }
+  };
+
+  listProducts(){
+    this.router.navigate(['/produtos']);
   }
 }

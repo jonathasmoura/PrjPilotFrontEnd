@@ -9,6 +9,7 @@ import { ListCategoriesComponent } from './components/categories/list-categories
 import { HttpClientModule } from '@angular/common/http';
 import { AddproductComponent } from './components/products/addproduct/addproduct.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditproductComponent } from './components/products/editproduct/editproduct.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     ListProductsComponent,
     ListCategoriesComponent,
-    AddproductComponent
+    AddproductComponent,
+    EditproductComponent
   ],
   imports: [
     BrowserModule,

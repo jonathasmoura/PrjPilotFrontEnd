@@ -14,10 +14,16 @@ export class ProductsService {
     return this.http.get<Product[]>(this.baseUrl +'products');    
   }
 
+  getProductById(id: number):Observable<Product>{
+    return this.http.get<Product>(this.baseUrl + 'getby/' + id);
+  }
+
   addProduct(product: Product):Observable<any>{
     return this.http.post(this.baseUrl + 'addproduct', product);
   }
 
-
+  updateProduct(product: Product):Observable<any>{
+    return this.http.put<Product>(this.baseUrl + 'edit/' + product.id, product);
+  }
 
 }

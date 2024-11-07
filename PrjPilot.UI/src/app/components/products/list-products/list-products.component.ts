@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -12,7 +13,7 @@ export class ListProductsComponent implements OnInit{
 products: Product[]=[];
 //[{id:'1', name:'Bermuda Tommy Hil',description:'Bermuda Jeans',price:159.99,quantity:100 },{id:'2', name:'Jaqueta Corta Vento',description:'Jaqueta Tacktel',price:129.99,quantity:100 },{id:'3', name:'Camiseta Lacospe',description:'Camiseta Pólo',price:199.99,quantity:10 }];
 
-constructor(private productService: ProductsService) {
+constructor(private productService: ProductsService, private router: Router) {
   
 }
 
@@ -31,4 +32,8 @@ constructor(private productService: ProductsService) {
       }
     })
   } 
+
+  editProduct(productId: number){
+    this.router.navigate(['/editar-produto', productId]);
+  }
 }

@@ -36,12 +36,11 @@ export class EditproductComponent implements OnInit{
 
 
   getProductById(id: number){
-
     this.productService.getProductById(id).subscribe((product: Product)=> this.editProduct(product),
-  (err: any) => console.log(err)
-    );}
+      (err: any) => console.log(err)
+  )};
 
-    editProduct(product: Product){
+      editProduct(product: Product){
       this.formEditProduct.patchValue({
         id:product.id,
         name: product.name,

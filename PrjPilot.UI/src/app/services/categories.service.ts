@@ -19,11 +19,18 @@ getAllCategories(): Observable<Category[]>{
     return this.http.get<Category[]>(this.baseUrl + 'categories');
 }
 
-addCategory(categry: Category): Observable<any>{
-return this.http.post(this.baseUrl + 'addcategory', categry);
+getCategoryById(id: number):Observable<Category>{
+  return this.http.get<Category>(this.baseUrl + 'getby/' + id);
 }
 
+addCategory(category: Category): Observable<any>{
+return this.http.post(this.baseUrl + 'addcategory', category);
+}
 
+updateCategory(category: Category):Observable<any>{
+  debugger
+  return this.http.put<Category>(this.baseUrl + 'edit/' + category.id, category);
+}
 
 
 

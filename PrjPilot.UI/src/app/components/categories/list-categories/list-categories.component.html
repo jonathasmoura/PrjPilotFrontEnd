@@ -1,5 +1,5 @@
 <h1>Categorias</h1>
-<button type="button" id="btnModalCategory" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" (click)="clickAddCategory()" id="btnModalCategory" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Incluir Categoria
   </button>
 <table class="table table-striped">
@@ -15,7 +15,10 @@
             <th>{{c.id}}</th>
             <td>{{c.name}}</td>
             <td>{{c.description}}</td>
-            
+            <td>
+              <input class="btn btn-danger" type="submit" value="Excluir">&nbsp;
+              <input (click)="clickEditCategory(c)" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit"  value="Editar">
+          </td>
         </tr>
     </tbody>
 </table>
@@ -24,7 +27,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Incluir Categoria</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{nameAddOrEdit}}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -41,7 +44,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSubmit()">Salvar</button>
+          <button type="button"  *ngIf="showAdd" (click)="postCategory()" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+          <button type="button"   *ngIf="showUpdate" (click)="onUpdate()" class="btn btn-primary" data-bs-dismiss="modal">Editar</button>
         </div>
       </div>
     </div>

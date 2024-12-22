@@ -20,6 +20,17 @@
             <label for="quantity" class="form-label">Quantidade</label>
             <input type="number" class="form-control" id="quantity" formControlName="quantity">
           </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-label" for="categoryId">Categoria</label>
+              <select class="form-control" formControlName="categoryId">
+                <option value="-1">
+                  Selecionar Categoria
+                </option>
+                <option *ngFor="let item of categories" value="{{item.id}}">{{item.name}}</option>
+              </select>
+            </div>
+          </div>
         
         <div class="col-12">
           <button type="submit" [disabled]="" class="btn btn-primary">Editar Produto</button>&nbsp;

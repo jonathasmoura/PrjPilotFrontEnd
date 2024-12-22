@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Category } from 'src/app/models/category.model';
 import { Product } from 'src/app/models/product.model';
+import { CategoriesService } from 'src/app/services/categories.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -11,15 +13,17 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class EditproductComponent implements OnInit{
   formEditProduct: FormGroup;
+  public categories: Category[] = [];
 
-    constructor(private fb: FormBuilder, private route: ActivatedRoute, private productService: ProductsService, private router: Router) {
+    constructor(private fb: FormBuilder, private route: ActivatedRoute, private productService: ProductsService, private categoryService: CategoriesService,private router: Router) {
 
       this.formEditProduct = this.fb.group({
         id:[],
         name:[],
         description:[],
         price:[],
-        quantity:[]
+        quantity:[],
+        categoryId:[]
       })
     }
   ngOnInit(): void {
@@ -28,13 +32,18 @@ export class EditproductComponent implements OnInit{
         const idP = params.get('id');
 
         if(idP){
+          this.getCategories();
             this.getProductById(Number(idP));
           }
       }
     })
   }
 
-
+getCategories(){
+  this.categoryService.getAllCategories().subscribe((s) =>{
+    this.categories = s;
+  })
+}
   getProductById(id: number){
     this.productService.getProductById(id).subscribe((product: Product)=> this.editProduct(product),
       (err: any) => console.log(err)
@@ -46,7 +55,8 @@ export class EditproductComponent implements OnInit{
         name: product.name,
         description: product.description,
         price: product.price,
-        quantity: product.quantity
+        quantity: product.quantity,
+        categoryId: product.categoryId
       });
     }
 

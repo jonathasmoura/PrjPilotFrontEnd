@@ -22,6 +22,7 @@ constructor(private productService: ProductsService, private router: Router) {
   }
 
   loadProducts(){
+    debugger
     this.productService.getAllProducts().subscribe({
       next:(products) => {
         console.log(products);

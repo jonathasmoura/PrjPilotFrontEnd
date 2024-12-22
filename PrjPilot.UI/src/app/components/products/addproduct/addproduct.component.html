@@ -1,5 +1,5 @@
 <div class="container">
-<form [formGroup]="formProduct" class="row g-3" (ngSubmit)="submitForm()">   
+  <form [formGroup]="formProduct" class="row g-3" (ngSubmit)="submitForm()">
     <div class="col-6">
       <label for="name" class="form-label">Nome Produto</label>
       <input type="text" class="form-control" id="name" formControlName="name" placeholder="">
@@ -13,10 +13,21 @@
       <input type="number" class="form-control" id="price" formControlName="price">
     </div>
     <div class="col-md-3">
-        <label for="quantity" class="form-label">Quantidade</label>
-        <input type="number" class="form-control" id="quantity" formControlName="quantity">
+      <label for="quantity" class="form-label">Quantidade</label>
+      <input type="number" class="form-control" id="quantity" formControlName="quantity">
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label" for="categoryId">Categoria</label>
+        <select class="form-control" formControlName="categoryId">
+          <option value="-1">
+            Selecionar Categoria
+          </option>
+          <option *ngFor="let item of categories" value="{{item.id}}">{{item.name}}</option>
+        </select>
       </div>
-    
+    </div>
+
     <div class="col-12">
       <button type="submit" [disabled]="formProduct.invalid" class="btn btn-primary">Salvar Produto</button>&nbsp;
       <button (click)="listProducts()" class="btn btn-outline-secondary">Voltar</button>
